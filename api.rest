@@ -1,0 +1,163 @@
+###
+POST http://localhost:4000/api/Arbitros
+Content-Type: application/json
+
+{
+    "id": 13,
+    "nombre": "Martin Gonzales"
+}
+
+###
+POST http://localhost:4000/api/Jugadores
+Content-Type: application/json
+
+{
+    "id": 3,
+    "nombre": "Martin Lopez",
+    "camiseta": "10",
+    "posicion": "Delantero",
+    "incidencias": {
+     "id": 1,
+     "tipo": "GOl",
+     "partido": 1,
+     "minuto": "55:00",
+     "equipo": 1,
+     "eA": "",
+     "eB": ""
+    }
+}
+
+###
+POST http://localhost:4000/api/Torneos
+Content-Type: application/json
+
+{
+  "id": 2,
+  "nombre": "Liga Hueco Lindo",
+  "temporada": "Primer Semestre",
+  "ganador": 1,
+  "segundoP": 2,
+  "tercerP": 3,
+  "partidos": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }, { "id": 5 }]
+}
+
+###
+POST  http://localhost:4000/api/Equipos
+Content-Type: application/json
+
+{
+  "id": 3,
+  "nombre": "Para los de torneo 2 una más",
+  "torneo": [
+    {
+      "idT": 2,
+      "jugadores": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }, { "id": 5 }]
+    }
+  ]
+}
+
+###
+POST http://localhost:4000/api/Grupos
+Content-Type:  application/json
+
+{
+  "id": 10,
+  "nombre": "Los pro",
+  "equipos": [
+    { "id": 1, "puesto": 5 },
+    { "id": 2, "puesto": 4 },
+    { "id": 3, "puesto": 3 },
+    { "id": 4, "puesto": 2 },
+    { "id": 5, "puesto": 1 }
+  ]
+}
+
+###
+POST http://localhost:4000/api/Fases
+Content-Type:  application/json
+
+{
+  "id": 2,
+  "nombre": "grupos",
+  "torneo": 1,
+  "ganador": { "grupo": "2", "equipo": "1" },
+  "segundo": { "grupo": "1", "equipo": "2" },
+  "tercero": { "grupo": "3", "equipo": "2" },
+  "grupos": [
+    { "nombre": "Los pro" },
+    { "nombre": "Los 0" },
+    { "nombre": "Los 2" },
+    { "nombre": "Los 3" },
+    { "nombre": "Los 4" }
+  ]
+}
+
+###
+POST http://localhost:4000/api/Partidos
+Content-Type:  application/json
+
+{
+    "id": 22,
+    "estadio": "Pascual Guerrero",
+    "equipoA": "Los pro",
+    "equipoB": "Los perversos",
+    "idGrupo": 1,
+    "idFase": 2,
+    "idTorneo": 1,
+    "arbitro": 
+    [
+        {
+            "nombre": "Marlon Lopez",
+            "designacion": "Principal"
+        },
+        {
+            "nombre": "xxxx xxxxx",
+            "designacion": "Lateral"
+        },
+        {
+            "nombre": "zzzzz ssss",
+            "designacion": "Lateral"
+        }
+    ],
+    "jugadores": 
+    [
+        {
+            "nombre": "Martin Lopez",
+            "posicion": "Delantero",
+            "equipo": "los pro"
+        },
+        {
+            "nombre": "MARLON X",
+            "posicion": "Delantero",
+            "equipo": "los peores"
+        }
+    ]
+}
+
+###lectura 
+###
+GET http://localhost:4000/api/Arbitros
+
+###
+GET http://localhost:4000/api/Equipos
+
+###
+GET http://localhost:4000/api/Fases
+
+###
+GET  http://localhost:4000/api/Grupos
+
+###
+GET http://localhost:4000/api/Jugadores
+
+###
+GET  http://localhost:4000/api/Partidos
+
+###
+GET  http://localhost:4000/api/Torneos
+
+###
+GET  http://localhost:4000/api/Equipos/1
+
+###
+GET http://localhost:4000/api/Partidos/Martin Lopez
